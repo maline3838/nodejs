@@ -28,4 +28,16 @@ jobs:
         cache: 'npm'    
     - run: npm ci
     - run: npm run build --if-present
+    - name: Start server
+      run: node server.js
+
+    - name: Install localtunnel
+      run: npm install -g localtunnel
+
+    - name: Expose server to the internet
+      run: lt --port 8080
+      
+      env:
+        LT_SUBDOMAIN: your-chosen-subdomain # 你可以选择一个子域名
+
     
