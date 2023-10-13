@@ -36,7 +36,9 @@ jobs:
 
     - name: Expose server to the internet
       run: lt --port 8080
-      
+
+    - name: Wait for localtunnel to start
+      run: sleep 10  # 这里等待 10 秒钟  
       env:
         LT_SUBDOMAIN: your-chosen-subdomain # 你可以选择一个子域名
 
